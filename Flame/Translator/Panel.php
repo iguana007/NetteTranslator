@@ -1,6 +1,6 @@
 <?php
 
-namespace NetteTranslator;
+namespace Flame\Translator;
 
 use Nette;
 

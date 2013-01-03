@@ -24,7 +24,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-namespace NetteTranslator;
+namespace Flame\Translator;
 
 require_once __DIR__ . '/shortcuts.php';
 

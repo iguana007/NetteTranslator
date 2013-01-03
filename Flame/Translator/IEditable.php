@@ -25,7 +25,7 @@
  *
  */
 
-namespace NetteTranslator;
+namespace Flame\Translator;
 
 /**
  * Editable translator
