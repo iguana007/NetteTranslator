@@ -16,10 +16,10 @@ config.neon:
 	common:
 		services:
 			translator:
-				factory: NetteTranslator\Gettext::getTranslator
+				factory: \Flame\Translator\Gettext::getTranslator
 				setup:
 					- addFile(%appDir%/lang, front) # at leas one file required
-					- NetteTranslator\Panel::register # panel to debug bar
+					- \Flame\Translator\Panel::register # panel to debug bar
 
 NOTE: **Do not forget to make folder __%appDir%/lang__ writable**
 
@@ -47,7 +47,7 @@ abstract class BasePresenter extends Flame\Application\UI\Presenter
 
 	/**
 	 * @autowire
-	 * @var \NetteTranslator\Gettext
+	 * @var \Flame\Translator\Gettext
 	 */
 	protected $translator;
 
