@@ -14,9 +14,6 @@ Actual info/manual: http://wiki.nette.org/cs/cookbook/zprovozneni-prekladace-net
 config.neon:
 
 	common:
-		parameters:
-			lang: cs # default language
-
 		services:
 			translator:
 				factory: NetteTranslator\Gettext::getTranslator
@@ -24,6 +21,7 @@ config.neon:
 					- addFile(%appDir%/lang, front) # at leas one file required
 					- NetteTranslator\Panel::register # panel to debug bar
 
+NOTE: **Do not forget to make folder __%appDir%/lang__ writable**
 
 ### 2. Use in templates
 
@@ -35,12 +33,48 @@ default.latte:
 
 ### 3. Use in forms
 
-MyPreseneter.php:	
+```php
+/**
+ * Base presenter for all application presenters.
+ */
+abstract class BasePresenter extends Flame\Application\UI\Presenter
+{
 
-	createComponentMyForm ()
+	/**
+	 * @persistent
+	 */
+	public $lang;
+
+	/**
+	 * @autowire
+	 * @var \NetteTranslator\Gettext
+	 */
+	protected $translator;
+
+	/**
+	 * @autowire
+	 * @var \Nette\Http\Request
+	 */
+	protected $request;
+
+	protected function startup()
 	{
-		$form = new Form;
-		// ...
+		parent::startup();
 
-		$form->setTranslator($this->context->translator);
+		if (!$this->lang) {
+			$lang = $this->request->detectLanguage(array('en', 'cs')) ?: 'cs';
+			$this->redirectUrl($lang);
+		}
+
 	}
+
+	public function createTemplate($class = NULL)
+	{
+		$template = parent::createTemplate($class);
+		$this->translator->setLang($this->lang); // set lang
+		$template->setTranslator($this->translator);
+		return $template;
+	}
+
+}
+```php
