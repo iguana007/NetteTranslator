@@ -1,7 +1,7 @@
 {
 	"name": "flame/translator",
     "description": "Nette translator for multilanguage applications",
-    "keywords": ["translator", "nette", "simple", "flame", "tools", "doctrine"],
+    "keywords": ["translator", "nette", "simple", "flame", "tools", "multilanguage"],
     "homepage": "https://github.com/flame-org/Translator",
     "license": "BSD-2-Clause-FreeBSD",
     "minimum-stability":"dev",
