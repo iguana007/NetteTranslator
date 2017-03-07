@@ -1,6 +1,6 @@
 <?php
 
-namespace NetteTranslator;
+namespace Flame\Translator;
 
 use Nette;
 
@@ -28,13 +28,13 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	/** @var int Height of the editor */
 	protected $height = 410;
 
-	/** @var Nette\DI\IContainer */
+	/** @var Nette\DI\Container */
 	protected $container;
 
 	/** @var IEditable */
 	protected $translator;
 
-	public function __construct(Nette\DI\IContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public function __construct(Nette\DI\Container $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		$this->container = $container;
 		$this->translator = $translator;
@@ -177,7 +177,7 @@ class Panel extends Nette\Object implements Nette\Diagnostics\IBarPanel
 	 * @param int $layout
 	 * @param int $height
 	 */
-	public static function register(Nette\DI\IContainer $container, IEditable $translator, $layout = NULL, $height = NULL)
+	public static function register(Nette\DI\Container $container, IEditable $translator, $layout = NULL, $height = NULL)
 	{
 		Nette\Diagnostics\Debugger::$bar->addPanel(new static($container, $translator, $layout, $height));
 	}

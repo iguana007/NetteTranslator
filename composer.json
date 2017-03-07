@@ -1,0 +1,37 @@
+{
+	"name": "flame/translator",
+    "description": "Nette translator for multilanguage applications",
+    "keywords": ["translator", "nette", "simple", "flame", "tools", "multilanguage"],
+    "homepage": "https://github.com/flame-org/Translator",
+    "license": "BSD-2-Clause-FreeBSD",
+    "minimum-stability":"dev",
+
+    "authors": [
+        {
+            "name": "Jiří Šifalda",
+            "homepage": "http://jsifalda.name/"
+        }
+    ],
+
+    "support":{
+        "email":"flame@jsifalda.name",
+        "issues":"https://github.com/flame-org/Translator/issues"
+    },
+
+	"require": {
+		"php": ">=5.3.2",
+		"nette/nette": ">=2.0.1"
+	},
+
+	"suggest": {
+		"flame/framework": ">=2.0.0"
+	},
+
+	"config": {
+		"vendor-dir": "libs"
+	},
+
+	"autoload": {
+		"psr-0": {"Flame": ""}
+	}
+}
